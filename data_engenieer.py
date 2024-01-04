@@ -39,3 +39,7 @@ data['percentage_increase'] = ((data['hsc_p'] - data['ssc_p']) / data['ssc_p']) 
 
 # Visualizando as primeiras linhas dos dados com a nova feature 'percentage_increase'
 print(data[['ssc_p', 'hsc_p', 'percentage_increase']].head())
+
+# Salvar os dados processados em um novo arquivo CSV na pasta 'data'
+data.to_csv('data/placement_data_golden.csv', index=False)  # Index=False para não salvar o índice do DataFrame
+
