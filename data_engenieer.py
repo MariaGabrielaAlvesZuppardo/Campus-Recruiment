@@ -5,8 +5,6 @@ from sklearn.preprocessing import LabelEncoder
 # Carregando os dados
 data = pd.read_csv('data/Placement_Data_Full_Class(Bronze).csv')
 
-print(data.head())
-
 # Tratamento para valores ausentes
 data.fillna(0, inplace=True)
 
@@ -31,3 +29,9 @@ for col in categorical_columns:
 
 # Visualizar as primeiras linhas dos dados
 print(data.head())
+
+# Criar uma nova feature 'total_marks' representando a soma das notas
+data['total_marks'] = data['ssc_p'] + data['hsc_p'] + data['degree_p'] + data['etest_p'] + data['mba_p']
+
+# Visualizar as primeiras linhas dos dados com a nova feature
+print(data[['ssc_p', 'hsc_p', 'degree_p', 'etest_p', 'mba_p', 'total_marks']].head())
